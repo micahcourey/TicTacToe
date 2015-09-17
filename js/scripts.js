@@ -16,43 +16,46 @@ GameBoard.prototype.mark = function(xo, position) {
 
 //winning scenario
 GameBoard.prototype.win = function() {
-if (
-    ((this.spaces[0] == "X") && (this.spaces[1] == "X") && (this.spaces[2] == "X")) ||
+if (((this.spaces[0] == "X") && (this.spaces[1] == "X") && (this.spaces[2] == "X")) ||
     ((this.spaces[3] == "X") && (this.spaces[4] == "X") && (this.spaces[5] == "X")) ||
     ((this.spaces[6] == "X") && (this.spaces[7] == "X") && (this.spaces[8] == "X")) ||
     ((this.spaces[0] == "X") && (this.spaces[3] == "X") && (this.spaces[6] == "X")) ||
     ((this.spaces[1] == "X") && (this.spaces[4] == "X") && (this.spaces[7] == "X")) ||
     ((this.spaces[2] == "X") && (this.spaces[5] == "X") && (this.spaces[8] == "X")) ||
     ((this.spaces[0] == "X") && (this.spaces[4] == "X") && (this.spaces[8] == "X")) ||
-    ((this.spaces[2] == "X") && (this.spaces[4] == "X") && (this.spaces[6] == "X")))
-    {
-       return "Player X wins!"
-    }
+    ((this.spaces[2] == "X") && (this.spaces[4] == "X") && (this.spaces[6] == "X"))) {
 
-if (
-    ((this.spaces[0] == "O") && (this.spaces[1] == "O") && (this.spaces[2] == "O")) ||
+      return "Player X wins!"
+  }
+if (((this.spaces[0] == "O") && (this.spaces[1] == "O") && (this.spaces[2] == "O")) ||
     ((this.spaces[3] == "O") && (this.spaces[4] == "O") && (this.spaces[5] == "O")) ||
     ((this.spaces[6] == "O") && (this.spaces[7] == "O") && (this.spaces[8] == "O")) ||
     ((this.spaces[0] == "O") && (this.spaces[3] == "O") && (this.spaces[6] == "O")) ||
     ((this.spaces[1] == "O") && (this.spaces[4] == "O") && (this.spaces[7] == "O")) ||
     ((this.spaces[2] == "O") && (this.spaces[5] == "O") && (this.spaces[8] == "O")) ||
     ((this.spaces[0] == "O") && (this.spaces[4] == "O") && (this.spaces[8] == "O")) ||
-    ((this.spaces[2] == "O") && (this.spaces[4] == "O") && (this.spaces[6] == "O")))
-    {
-    return "Player O wins!"
+    ((this.spaces[2] == "O") && (this.spaces[4] == "O") && (this.spaces[6] == "O"))) {
+
+      return "Player O wins!"
   }
 };
 
 $(document).ready(function(){
   var gameBoard = new GameBoard();
 
+  $("#game-board").gameBoard
+  $("#game-board").find('td').on('click', function() {
+
+
+  });
+
   $("#form_X").submit(function(event) {
     event.preventDefault();
     var markX = $("input#X").val();
     gameBoard.mark("X", markX);
     var checkWin = gameBoard.win();
-    console.log(checkWin);
     console.log(gameBoard.spaces);
+    console.log(checkWin);
   });
 
   $("#form_O").submit(function(event) {
@@ -60,7 +63,7 @@ $(document).ready(function(){
     var markO = $("input#O").val();
     gameBoard.mark("O", markO);
     var checkWin = gameBoard.win();
-    console.log(checkWin);
     console.log(gameBoard.spaces);
+    console.log(checkWin);
    });
 });

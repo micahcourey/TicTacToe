@@ -2,19 +2,52 @@
 
 .well {
     background-color: rgba(50, 50, 50, 0.65);
-    margin-top: 20px;r
+    margin-top: 20px;
 }
 
-.terminator-bg {
-    background-image: url("../img/arnie.jpg");
-    background-size: 100% 100%;
+.square{
+    width:150px;
+    height:150px;
 }
 
-
-#ticket {
-    display: none;
+.vertical{
+    border-left:4px solid #2D3142;
+    border-right:4px solid #2D3142;
 }
 
-#terminator {
-    display: none;
+.horizontal{
+    border-top:4px solid #2D3142;
+    border-bottom:4px solid #2D3142;
+}
+
+#container{
+    text-align:center;
+}
+
+#game-board {
+    display: inline-block;
+    margin-top:2%;
+
+}
+
+.space-btn {
+  width: 150px;
+  height: 150px;
+  background-color: #B0D7FF;
+}
+
+.invisible {
+    visibility:hidden;
+}
+.visible {
+    visibility:visible;
+}
+
+table {
+    background-color: #B0D7FF;
+    text-align:center;
+}
+p {
+    margin-left:25%;
+    margin-right:25%;
 }
