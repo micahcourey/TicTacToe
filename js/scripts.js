@@ -9,7 +9,7 @@ GameBoard.prototype.mark = function(xo, position) {
   return this.spaces;
 };
 
-//winning scenario
+//winning scenarios
 GameBoard.prototype.win = function() {
 if (((this.spaces[0] == "X") && (this.spaces[1] == "X") && (this.spaces[2] == "X")) ||
     ((this.spaces[3] == "X") && (this.spaces[4] == "X") && (this.spaces[5] == "X")) ||
@@ -35,32 +35,35 @@ if (((this.spaces[0] == "O") && (this.spaces[1] == "O") && (this.spaces[2] == "O
   }
 };
 
+var counter = true;
+GameBoard.prototype.turn = function(position) {
+    if (counter) {
+      counter = false;
+      return this.mark("O", position);
+    } else {
+      counter = true;
+      return this.mark("X", position);
+    }
+};
+
 $(document).ready(function(){
   var gameBoard = new GameBoard();
   var checkWin = gameBoard.win();
-  var counter = 0;
-  var turn = function() {
-    for(var i=0; counter.length; i++)
-      if (counter%2 == 0) {
-        return gameBoard.mark("X", position);
-      } else {
-        return gameBoard.mark("O", position);
-      }
+  var checkTurn = gameBoard.turn();
 
-  };
-  console.log(counter);
   $("#game-board").gameBoard
     $("#btn-0").click(function() {
-      gameBoard.mark("X", 0);
       $("#btn-0").text($("#btn-0").data("text-swap"))
       var checkWin = gameBoard.win();
+      var changeTurn = gameBoard.turn(0);
       console.log(gameBoard.spaces);
       console.log(checkWin);
+      console.log(checkTurn);
     });
     $("#btn-1").click(function() {
-      gameBoard.mark("X", 1)
       $("#btn-1").text($("#btn-1").data("text-swap"))
       var checkWin = gameBoard.win();
+      var changeTurn = gameBoard.turn(1);
       console.log(gameBoard.spaces);
       console.log(checkWin);
     });
@@ -68,47 +71,48 @@ $(document).ready(function(){
       gameBoard.mark("X", 2)
       $("#btn-2").text($("#btn-2").data("text-swap"))
       var checkWin = gameBoard.win();
+      var changeTurn = gameBoard.turn(2);
       console.log(gameBoard.spaces);
       console.log(checkWin);
     });
     $("#btn-3").click(function() {
-      gameBoard.mark("X", 3)
       $("#btn-3").text($("#btn-3").data("text-swap"))
       var checkWin = gameBoard.win();
+      var changeTurn = gameBoard.turn(3);
       console.log(gameBoard.spaces);
       console.log(checkWin);
     });
     $("#btn-4").click(function() {
-      gameBoard.mark("X", 4)
       $("#btn-4").text($("#btn-4").data("text-swap"))
+      var changeTurn = gameBoard.turn(4);
       var checkWin = gameBoard.win();
       console.log(gameBoard.spaces);
       console.log(checkWin);
     });
     $("#btn-5").click(function() {
-      gameBoard.mark("X", 5)
       $("#btn-5").text($("#btn-5").data("text-swap"))
+      var changeTurn = gameBoard.turn(5);
       var checkWin = gameBoard.win();
       console.log(gameBoard.spaces);
       console.log(checkWin);
     });
     $("#btn-6").click(function() {
-      gameBoard.mark("X", 6)
       $("#btn-6").text($("#btn-6").data("text-swap"))
+      var changeTurn = gameBoard.turn(6);
       var checkWin = gameBoard.win();
       console.log(gameBoard.spaces);
       console.log(checkWin);
     });
     $("#btn-7").click(function() {
-      gameBoard.mark("X", 7)
       $("#btn-7").text($("#btn-7").data("text-swap"))
+      var changeTurn = gameBoard.turn(7);
       var checkWin = gameBoard.win();
       console.log(gameBoard.spaces);
       console.log(checkWin);
     });
     $("#btn-8").click(function() {
-      gameBoard.mark("X", 8)
       $("#btn-8").text($("#btn-8").data("text-swap"))
+      var changeTurn = gameBoard.turn(8);
       var checkWin = gameBoard.win();
       console.log(gameBoard.spaces);
       console.log(checkWin);
