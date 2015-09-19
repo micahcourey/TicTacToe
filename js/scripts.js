@@ -39,9 +39,15 @@ var counter = true;
 GameBoard.prototype.turn = function(position) {
     if (counter) {
       counter = false;
-      return this.mark("O", position);
+      $(".space-btn").click(function() {
+        $(this).replaceWith($("<h1>O</h1>"));
+      });
+      return this.mark("O", position)
     } else {
       counter = true;
+      $(".space-btn").click(function() {
+        $(this).replaceWith($("<h1>X</h1>"));
+      });
       return this.mark("X", position);
     }
 };
@@ -51,9 +57,10 @@ $(document).ready(function(){
   var checkWin = gameBoard.win();
   var checkTurn = gameBoard.turn();
 
+
   $("#game-board").gameBoard
     $("#btn-0").click(function() {
-      $("#btn-0").text($("#btn-0").data("text-swap"))
+      //$("#btn-0").text($("#btn-0").data("text-swap"))
       var checkWin = gameBoard.win();
       var changeTurn = gameBoard.turn(0);
       console.log(gameBoard.spaces);
@@ -61,7 +68,7 @@ $(document).ready(function(){
       console.log(checkTurn);
     });
     $("#btn-1").click(function() {
-      $("#btn-1").text($("#btn-1").data("text-swap"))
+      //$("#btn-1").text($("#btn-1").data("text-swap"))
       var checkWin = gameBoard.win();
       var changeTurn = gameBoard.turn(1);
       console.log(gameBoard.spaces);
